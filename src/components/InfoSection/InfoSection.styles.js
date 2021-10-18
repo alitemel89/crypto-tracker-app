@@ -26,6 +26,7 @@ export const InfoColumn = styled.div`
     flex-basis: 100%;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
   }
 `;
 

@@ -58,20 +58,20 @@ const Navbar = () => {
               </NavItem>
 
               <NavItem>
-                <NavLinks to="/projects">Cryptocurrencies</NavLinks>
+                <NavLinks to="/cryptocurrencies">Cryptocurrencies</NavLinks>
               </NavItem>
 
               <NavItem>
-                <NavLinks to="/profile">News</NavLinks>
+                <NavLinks to="/news">News</NavLinks>
               </NavItem>
 
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/contact">
+                  <NavBtnLink to="/signup">
                     <Button primary>Sign up</Button>
                   </NavBtnLink>
                 ) : (
-                  <NavBtnLink to="/contact">
+                  <NavBtnLink to="/signup">
                     <Button onClick={closeMobileMenu} primary>
                       Sign Up
                     </Button>
