@@ -3,7 +3,7 @@ import GlobalStyle from "./globalStyles";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import HomePage from "./pages/HomePage";
+import Home from "./pages/HomePage/Home";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <GlobalStyle />
       <Navbar />
       <Switch>
-        <Route path="/" exact component={HomePage} />
+        <Route path="/" exact component={Home} />
       </Switch>
     </Router>
   );
