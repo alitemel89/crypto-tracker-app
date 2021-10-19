@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "../../globalStyles";
 import millify from "millify";
 import { AiFillDollarCircle } from "react-icons/ai";
+import { GiMoneyStack } from "react-icons/gi";
+import { ImStatsDots } from "react-icons/im";
+
 import { IconContext } from "react-icons/lib";
 import {
   CoinsSection,
@@ -9,7 +11,6 @@ import {
   CoinsHeading,
   CoinsContainer,
   CoinsCard,
-  CoinsCardInfo,
   CoinsCardIcon,
   CoinsCardHeading,
   CoinsCardText,
@@ -19,7 +20,7 @@ import {
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 
 function Cryptocurrencies() {
-  const { data: cryptosList, isFetching } = useGetCryptosQuery(10);
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(20);
   const [cryptos, setCryptos] = useState();
 
   useEffect(() => {
@@ -50,14 +51,16 @@ function Cryptocurrencies() {
                   <CoinsCardText>
                     <AiFillDollarCircle
                       style={{ width: "20px", height: "20px" }}
-                    />&nbsp;
-                    Price: {millify(currency.price)} USD
+                    />
+                    &nbsp; Price: {millify(currency.price)} USD
                   </CoinsCardText>
                   <CoinsCardText>
-                    Market Cap: {millify(currency.marketCap)}
+                    <GiMoneyStack style={{ width: "20px", height: "20px" }} />
+                    &nbsp; Market Cap: {millify(currency.marketCap)}
                   </CoinsCardText>
                   <CoinsCardText>
-                    Daily Change: {currency.change}%
+                    <ImStatsDots style={{ width: "20px", height: "20px" }}/> 
+                    &nbsp; Daily Change: {currency.change}%
                   </CoinsCardText>
                 </CoinsCardFeatures>
               </CoinsCard>
