@@ -1,21 +1,17 @@
 import React from "react";
+
+// Components
 import InfoSection from "../../components/InfoSection/InfoSection";
-import GlobalStats from '../../components/GlobalStats/GlobalStats';
+import Cryptocurrencies from "../../components/CryptoCurrencies/CryptoCurrencies";
+import GlobalStats from "../../components/GlobalStats/GlobalStats";
 
 import { homeObjOne } from "./Data";
 
-import { useGetCryptosQuery } from "../../services/cryptoApi";
-
 const Home = () => {
-  const { data, isFetching } = useGetCryptosQuery(10);
-  const globalStats = data?.data?.stats;
-
-  if (isFetching) return 'Loading...';
-
-  console.log(data);
   return (
     <>
       <InfoSection {...homeObjOne} />
+      <Cryptocurrencies />
       <GlobalStats />
     </>
   );

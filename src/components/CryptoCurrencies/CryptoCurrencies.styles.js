@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const GlobalStatsSection = styled.div`
-  background: #fff7ec;
+export const CoinsSection = styled.div`
+  background: #fff;
   padding: 100px 0 160px;
 `;
 
-export const GlobalStatsWrapper = styled.div`
+export const CoinsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,13 +18,13 @@ export const GlobalStatsWrapper = styled.div`
   }
 `;
 
-export const GlobalStatsHeading = styled.h1`
-  color:#38b3d0;
+export const CoinsHeading = styled.h1`
+  color: #38b3d0;
   font-size: 48px;
   margin-bottom: 24px;
 `;
 
-export const GlobalStatsContainer = styled.div`
+export const CoinsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,17 +39,17 @@ export const GlobalStatsContainer = styled.div`
   }
 `;
 
-export const GlobalStatsCard = styled.div`
+export const CoinsCard = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #fff;
-  width: 200px;
-  height: 200px;
+  background: #0d0d36;
+  width:280px;
+  height: 280px;
   border-radius: 4px;
   margin: 20px;
-  color: #1c2237;
+  color: #fff;;
   box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 2);
@@ -66,16 +66,31 @@ export const GlobalStatsCard = styled.div`
   }
 `;
 
-export const GlobalStatsCardHeading = styled.p`
-  color: #000;
-  font-size: 16px;
+export const CoinsCardFeatures = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`
+
+
+export const CoinsCardHeading = styled.h1`
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
 `;
 
-export const GlobalStatsCardNumber = styled.h2`
-  color: #000;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 48px;
-  padding: 20px;
-  letter-spacing: 1.6;
-`;
+export const CoinsCardIcon = styled.div`
+  width: 100%;
+  margin: 24px 0;
+`
+
+
+export const CoinsCardText = styled.p`
+  font-size: 16px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  color: #ddd;
+`
+
+

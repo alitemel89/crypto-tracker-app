@@ -1,0 +1,71 @@
+import React, { useState, useEffect } from "react";
+import { Button } from "../../globalStyles";
+import millify from "millify";
+import { AiFillDollarCircle } from "react-icons/ai";
+import { IconContext } from "react-icons/lib";
+import {
+  CoinsSection,
+  CoinsWrapper,
+  CoinsHeading,
+  CoinsContainer,
+  CoinsCard,
+  CoinsCardInfo,
+  CoinsCardIcon,
+  CoinsCardHeading,
+  CoinsCardText,
+  CoinsCardFeatures,
+} from "./CryptoCurrencies.styles";
+
+import { useGetCryptosQuery } from "../../services/cryptoApi";
+
+function Cryptocurrencies() {
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(10);
+  const [cryptos, setCryptos] = useState();
+
+  useEffect(() => {
+    setCryptos(cryptosList?.data?.coins);
+  }, [cryptosList]);
+
+  console.log(cryptos);
+
+  if (isFetching) return "Loading...";
+
+  return (
+    <IconContext.Provider value={{ color: "#73ADAD", size: 50 }}>
+      <CoinsSection>
+        <CoinsWrapper>
+          <CoinsHeading>Top 10 Cryptocurrencies in the world</CoinsHeading>
+        </CoinsWrapper>
+
+        <CoinsWrapper>
+          <CoinsContainer>
+            {cryptos?.map((currency) => (
+              <CoinsCard>
+                <CoinsCardFeatures>
+                  <CoinsCardIcon>
+                    <img src={currency.iconUrl} alt="currency icon" />
+                  </CoinsCardIcon>
+                  <CoinsCardHeading>{currency.name}</CoinsCardHeading>
+
+                  <CoinsCardText>
+                    <AiFillDollarCircle
+                      style={{ width: "20px", height: "20px" }}
+                    />&nbsp;
+                    Price: {millify(currency.price)} USD
+                  </CoinsCardText>
+                  <CoinsCardText>
+                    Market Cap: {millify(currency.marketCap)}
+                  </CoinsCardText>
+                  <CoinsCardText>
+                    Daily Change: {currency.change}%
+                  </CoinsCardText>
+                </CoinsCardFeatures>
+              </CoinsCard>
+            ))}
+          </CoinsContainer>
+        </CoinsWrapper>
+      </CoinsSection>
+    </IconContext.Provider>
+  );
+}
+export default Cryptocurrencies;
