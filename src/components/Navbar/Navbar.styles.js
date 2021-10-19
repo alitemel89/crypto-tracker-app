@@ -54,6 +54,7 @@ export const MobileIcon = styled.div`
 
 export const NavHeader = styled.h3`
   color: #38b3d0;
+  font-size: 24px;
 `;
 
 export const NavMenu = styled.ul`

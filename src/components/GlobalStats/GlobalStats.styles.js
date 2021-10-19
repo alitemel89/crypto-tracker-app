@@ -20,7 +20,7 @@ export const GlobalStatsWrapper = styled.div`
 
 export const GlobalStatsHeading = styled.h1`
   color:#38b3d0;
-  font-size: 48px;
+  font-size: 36px;
   margin-bottom: 24px;
 `;
 

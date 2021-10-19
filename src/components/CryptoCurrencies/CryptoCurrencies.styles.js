@@ -20,8 +20,9 @@ export const CoinsWrapper = styled.div`
 
 export const CoinsHeading = styled.h1`
   color: #38b3d0;
-  font-size: 48px;
+  font-size: 36px;
   margin-bottom: 24px;
+  
 `;
 
 export const CoinsContainer = styled.div`
@@ -70,6 +71,8 @@ export const CoinsCardFeatures = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  text-align: center;
+  
 `
 
 
@@ -77,11 +80,16 @@ export const CoinsCardHeading = styled.h1`
   color: #fff;
   font-size: 24px;
   margin-bottom: 20px;
+  margin-top: 10px;
 `;
 
 export const CoinsCardIcon = styled.div`
   width: 100%;
-  margin: 24px 0;
+
+  @media screen and (max-width: 960px) {
+    width: 40%;
+    margin: 0 auto;
+  }
 `
 
 
@@ -91,6 +99,7 @@ export const CoinsCardText = styled.p`
   display: flex;
   align-items: center;
   color: #ddd;
+  justify-content: center;
 `
 
 

@@ -44,7 +44,7 @@ function Cryptocurrencies() {
               <CoinsCard>
                 <CoinsCardFeatures>
                   <CoinsCardIcon>
-                    <img src={currency.iconUrl} alt="currency icon" />
+                    <img src={currency.iconUrl} alt="currency icon" style={{ width: '20%' }} />
                   </CoinsCardIcon>
                   <CoinsCardHeading>{currency.name}</CoinsCardHeading>
 
@@ -59,7 +59,7 @@ function Cryptocurrencies() {
                     &nbsp; Market Cap: {millify(currency.marketCap)}
                   </CoinsCardText>
                   <CoinsCardText>
-                    <ImStatsDots style={{ width: "20px", height: "20px" }}/> 
+                    <ImStatsDots style={{ width: "20px", height: "20px" }} />
                     &nbsp; Daily Change: {currency.change}%
                   </CoinsCardText>
                 </CoinsCardFeatures>
