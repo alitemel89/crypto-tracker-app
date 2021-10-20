@@ -35,7 +35,7 @@ function Cryptocurrencies() {
     <IconContext.Provider value={{ color: "#73ADAD", size: 50 }}>
       <CoinsSection>
         <CoinsWrapper>
-          <CoinsHeading>Top 10 Cryptocurrencies in the world</CoinsHeading>
+          <CoinsHeading>Top Cryptocurrencies In the World</CoinsHeading>
         </CoinsWrapper>
 
         <CoinsWrapper>
