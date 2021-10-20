@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './News.css';
 import {
   NewsContainer,
   NewsHeading,
@@ -48,11 +49,7 @@ const News = () => {
                   <img
                     src={news?.image?.thumbnail?.contentUrl || demoImage}
                     alt="news-image"
-                    style={{
-                      maxWidth: "200px",
-                      maxHeight: "100px",
-                      borderRadius: "10px",
-                    }}
+                    className="news-header"
                   />
                 </NewsCardIcon>
                 <NewsCardHeading>{news.name}</NewsCardHeading>
@@ -73,7 +70,6 @@ const News = () => {
                     }
                     alt=""
                     style={{
-                      borderRadius: "50%",
                       maxWidth: "100px",
                       maxHeight: "50px",
                     }}

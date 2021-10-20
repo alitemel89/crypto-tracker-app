@@ -22,7 +22,6 @@ export const NewsHeading = styled.h1`
   color: #38b3d0;
   font-size: 36px;
   margin-bottom: 24px;
-  
 `;
 
 export const NewsContainer = styled.div`
@@ -63,7 +62,8 @@ export const NewsCard = styled.div`
     width: 90%;
     display: flex;
     flex-wrap: wrap;
-    height: 500px;
+    height: fit-content;
+    width: 300px;
     &:hover {
       transform: none;
     }
@@ -75,6 +75,11 @@ export const NewsHeader = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 10px;
+
+  @media screen and (max-width: 960px) {
+    font-size: 16px;
+    margin-left: 15px;
+  }
 `;
 
 export const NewsCardFeatures = styled.div`
@@ -82,7 +87,6 @@ export const NewsCardFeatures = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 10px;
-  
 `
 
 
@@ -94,6 +98,7 @@ export const NewsCardHeading = styled.h1`
 
   @media screen and (max-width: 960px) {
     font-size: 16px;
+    margin-left: 15px;
   }
 `;
 
@@ -102,8 +107,9 @@ export const NewsCardIcon = styled.div`
   margin-right: 10px;
 
   @media screen and (max-width: 960px) {
-    width: 20%;
+    width: 10%;
     margin: 0 auto;
+    margin-right: 20px;
   }
 `
 
@@ -119,6 +125,10 @@ export const NewsProvider = styled.div`
 export const NewsProviderName = styled.div`
   font-size: 16px;
   margin-left: 10px;
+
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 `
 
 export const NewsCardDescription = styled.p`
@@ -130,6 +140,11 @@ export const NewsCardDescription = styled.p`
 export const NewsCardDate = styled.p`
   font-size: 16px;
   margin-left: auto;
+
+  @media screen and (max-width: 960px) {
+    font-size: 12px;
+    margin-right: 5px;
+  }
 
 `
 
