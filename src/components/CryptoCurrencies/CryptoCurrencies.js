@@ -41,7 +41,7 @@ function Cryptocurrencies() {
         <CoinsWrapper>
           <CoinsContainer>
             {cryptos?.map((currency) => (
-              <CoinsCard>
+              <CoinsCard key={currency.id}>
                 <CoinsCardFeatures>
                   <CoinsCardIcon>
                     <img src={currency.iconUrl} alt="currency icon" style={{ width: '20%' }} />

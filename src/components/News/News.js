@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './News.css';
+import "./News.css";
 import {
   NewsContainer,
   NewsHeading,
@@ -14,7 +14,11 @@ import {
   NewsProvider,
   NewsProviderName,
   NewsCardDate,
+  NewsSelection,
+  NewsOption,
 } from "./News.styles";
+
+import { Button } from "../../globalStyles";
 
 import moment from "moment";
 import { useGetCryptoNewsQuery } from "../../services/cryptoNewsApi";
@@ -23,12 +27,12 @@ import { useGetCryptosQuery } from "../../services/cryptoApi";
 const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
-const News = () => {
+const News = ({ simplified }) => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data } = useGetCryptosQuery(100);
   const { data: cryptoNews } = useGetCryptoNewsQuery({
     newsCategory,
-    count: 12,
+    count: simplified ? 6 : 12,
   });
 
   if (!cryptoNews?.value) return "Loading...";
@@ -41,9 +45,24 @@ const News = () => {
       </NewsWrapper>
 
       <NewsWrapper>
+        {!simplified && (
+          <NewsSelection
+            optionFilterProp="children"
+            onChange={(value) => setNewsCategory(value)}
+            filterOption={(input, option) =>
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <NewsOption value="" disabled selected>Select a CryptoCurrency</NewsOption>
+            {data?.data?.coins?.map((currency) => (
+              <NewsOption value={currency.name}>{currency.name}</NewsOption>
+            ))}
+          </NewsSelection>
+        )}
+
         <NewsContainer>
           {cryptoNews.value.map((news, i) => (
-            <NewsCard>
+            <NewsCard key={i}>
               <NewsHeader>
                 <NewsCardIcon>
                   <img
@@ -58,7 +77,7 @@ const News = () => {
               <NewsCardFeatures>
                 <NewsCardDescription>
                   {news.description.length > 100
-                    ? `${news.description.substring(0,150)}...`
+                    ? `${news.description.substring(0, 150)}...`
                     : news.description}
                 </NewsCardDescription>
 
@@ -83,6 +102,7 @@ const News = () => {
             </NewsCard>
           ))}
         </NewsContainer>
+        <Button style={{ marginTop: "20px" }}>Show More</Button>
       </NewsWrapper>
     </NewsSection>
   );

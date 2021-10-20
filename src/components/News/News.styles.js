@@ -18,6 +18,18 @@ export const NewsWrapper = styled.div`
   }
 `;
 
+export const NewsSelection = styled.select`
+  width: 300px;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+`;
+
+export const NewsOption = styled.option`
+  color: #000;
+`;
+
 export const NewsHeading = styled.h1`
   color: #38b3d0;
   font-size: 36px;
