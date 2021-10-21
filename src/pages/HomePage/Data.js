@@ -4,10 +4,10 @@ export const homeObjOne = {
   lightTopLine: true,
   lightText: true,
   lightTextDesc: false,
-  topLine: "Recently Posted",
+  topLine: "Recently Posted Crypto News",
   headline: "CryptoTracker is a place to follow latest digital currency news",
   description:
-    "It easy and free to post your thinking on any topic and connect with millions of readers.",
+    "CryptoTracker is a platform for news, events, data & research for the next generation of investing and the future of money.",
   buttonLabel: "Subscribe to newsletters",
   imgStart: true,
   img: require("../../images/hero-1.svg"),

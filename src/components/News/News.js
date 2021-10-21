@@ -27,13 +27,18 @@ import { useGetCryptosQuery } from "../../services/cryptoApi";
 const demoImage =
   "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
-const News = ({ simplified }) => {
+const News = () => {
   const [newsCategory, setNewsCategory] = useState("Cryptocurrency");
   const { data } = useGetCryptosQuery(100);
+  const [count,setCount] = useState(12);
   const { data: cryptoNews } = useGetCryptoNewsQuery({
     newsCategory,
-    count: simplified ? 6 : 12,
+    count: count,
   });
+
+  const loadMoreNews = () => {
+    setCount(count + 8)
+  }
 
   if (!cryptoNews?.value) return "Loading...";
 
@@ -45,20 +50,20 @@ const News = ({ simplified }) => {
       </NewsWrapper>
 
       <NewsWrapper>
-        {!simplified && (
-          <NewsSelection
-            optionFilterProp="children"
-            onChange={(value) => setNewsCategory(value)}
-            filterOption={(input, option) =>
-              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            <NewsOption value="" disabled selected>Select a CryptoCurrency</NewsOption>
-            {data?.data?.coins?.map((currency) => (
-              <NewsOption value={currency.name}>{currency.name}</NewsOption>
-            ))}
-          </NewsSelection>
-        )}
+
+        <NewsSelection
+          optionFilterProp="children"
+          onChange={(e) => setNewsCategory(e.target.value)}
+          filterOption={(input, option) =>
+            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          }
+        >
+          <NewsOption value="" disabled selected>Select a CryptoCurrency</NewsOption>
+          {data?.data?.coins?.map((currency) => (
+            <NewsOption value={currency.name}>{currency.name}</NewsOption>
+          ))}
+        </NewsSelection>
+
 
         <NewsContainer>
           {cryptoNews.value.map((news, i) => (
@@ -67,11 +72,11 @@ const News = ({ simplified }) => {
                 <NewsCardIcon>
                   <img
                     src={news?.image?.thumbnail?.contentUrl || demoImage}
-                    alt="news-image"
+                    alt=""
                     className="news-header"
                   />
                 </NewsCardIcon>
-                <NewsCardHeading>{news.name}</NewsCardHeading>
+                <NewsCardHeading>{news.name.length > 100 ? `${news.name.substring(0, 100)}...` : news.name}</NewsCardHeading>
               </NewsHeader>
 
               <NewsCardFeatures>
@@ -102,7 +107,7 @@ const News = ({ simplified }) => {
             </NewsCard>
           ))}
         </NewsContainer>
-        <Button style={{ marginTop: "20px" }}>Show More</Button>
+        <Button style={{ marginTop: "20px" }} onClick={loadMoreNews}>Show More</Button>
       </NewsWrapper>
     </NewsSection>
   );
