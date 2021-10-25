@@ -3,6 +3,7 @@ import millify from "millify";
 import { AiFillDollarCircle } from "react-icons/ai";
 import { GiMoneyStack } from "react-icons/gi";
 import { ImStatsDots } from "react-icons/im";
+import { Link } from "react-router-dom";
 
 import { IconContext } from "react-icons/lib";
 import {
@@ -41,29 +42,35 @@ function Cryptocurrencies() {
         <CoinsWrapper>
           <CoinsContainer>
             {cryptos?.map((currency) => (
-              <CoinsCard key={currency.id}>
-                <CoinsCardFeatures>
-                  <CoinsCardIcon>
-                    <img src={currency.iconUrl} alt="currency icon" style={{ width: '20%' }} />
-                  </CoinsCardIcon>
-                  <CoinsCardHeading>{currency.name}</CoinsCardHeading>
+              <Link key={currency.id} to={`/crypto/${currency.id}`} style={{textDecoration: 'none'}}>
+                <CoinsCard>
+                  <CoinsCardFeatures>
+                    <CoinsCardIcon>
+                      <img
+                        src={currency.iconUrl}
+                        alt="currency icon"
+                        style={{ width: "20%" }}
+                      />
+                    </CoinsCardIcon>
+                    <CoinsCardHeading>{currency.name}</CoinsCardHeading>
 
-                  <CoinsCardText>
-                    <AiFillDollarCircle
-                      style={{ width: "20px", height: "20px" }}
-                    />
-                    &nbsp; Price: {millify(currency.price)} USD
-                  </CoinsCardText>
-                  <CoinsCardText>
-                    <GiMoneyStack style={{ width: "20px", height: "20px" }} />
-                    &nbsp; Market Cap: {millify(currency.marketCap)}
-                  </CoinsCardText>
-                  <CoinsCardText>
-                    <ImStatsDots style={{ width: "20px", height: "20px" }} />
-                    &nbsp; Daily Change: {currency.change}%
-                  </CoinsCardText>
-                </CoinsCardFeatures>
-              </CoinsCard>
+                    <CoinsCardText>
+                      <AiFillDollarCircle
+                        style={{ width: "20px", height: "20px" }}
+                      />
+                      &nbsp; Price: {millify(currency.price)} USD
+                    </CoinsCardText>
+                    <CoinsCardText>
+                      <GiMoneyStack style={{ width: "20px", height: "20px" }} />
+                      &nbsp; Market Cap: {millify(currency.marketCap)}
+                    </CoinsCardText>
+                    <CoinsCardText>
+                      <ImStatsDots style={{ width: "20px", height: "20px" }} />
+                      &nbsp; Daily Change: {currency.change}%
+                    </CoinsCardText>
+                  </CoinsCardFeatures>
+                </CoinsCard>
+              </Link>
             ))}
           </CoinsContainer>
         </CoinsWrapper>

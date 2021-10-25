@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/HomePage/Home";
 import Cryptocurrencies from "./components/CryptoCurrencies/CryptoCurrencies";
 import News from "./components/News/News";
+import CryptoDetails from "./components/CryptoDetails/CryptoDetails";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/cryptocurrencies" component={Cryptocurrencies} />
         <Route path="/news" component={News} />
+        <Route path="/crypto/:coinId" exact component={CryptoDetails} />
       </Switch>
     </Router>
   );
