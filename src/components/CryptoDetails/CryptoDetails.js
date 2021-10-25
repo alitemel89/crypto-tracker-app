@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import millify from "millify";
 
-import { useGetCryptoDetailsQuery } from "../../services/cryptoApi";
+import {
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} from "../../services/cryptoApi";
 import {
   AiFillDollarCircle,
   AiOutlineNumber,
@@ -11,6 +14,9 @@ import {
   AiFillStop,
   AiFillCheckCircle,
 } from "react-icons/ai";
+
+import { FcCurrencyExchange } from "react-icons/fc";
+import { SiMarketo } from "react-icons/si";
 
 import {
   TextWrapper,
@@ -23,11 +29,16 @@ import {
   TableRow,
   TableValue,
 } from "../CryptoDetails/CryptoDetails.styles";
+import LineChart from "../LineChart/LineChart";
 
 const CryptoDetails = () => {
   const [timePeriod, setTimePeriod] = useState("7d");
   const { coinId } = useParams();
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
+  const { data: coinHistory } = useGetCryptoHistoryQuery({
+    coinId,
+    timePeriod,
+  });
 
   const cryptoDetails = data?.data?.coin;
 
@@ -69,15 +80,15 @@ const CryptoDetails = () => {
     {
       title: "Number Of Markets",
       value: cryptoDetails.numberOfMarkets,
-      icon: <AiOutlineThunderbolt />,
+      icon: <SiMarketo />,
     },
     {
       title: "Number Of Exchanges",
       value: cryptoDetails.numberOfExchanges,
-      icon: <AiOutlineThunderbolt />,
+      icon: <FcCurrencyExchange />,
     },
     {
-      title: "Aprroved Supply",
+      title: "Approved Supply",
       value: cryptoDetails.approvedSupply ? (
         <AiFillCheckCircle />
       ) : (
@@ -99,6 +110,7 @@ const CryptoDetails = () => {
 
   return (
     <>
+      <LineChart />
       <InfoSec>
         <InfoRow>
           <InfoColumn>
@@ -110,7 +122,7 @@ const CryptoDetails = () => {
               </TopLine>
               {stats.map(({ title, value, icon }) => (
                 <TableRow>
-                  <Subtitle>{icon}</Subtitle>
+                  <Subtitle style={{ fontSize: "24px" }}>{icon}</Subtitle>
                   <Subtitle>{title}</Subtitle>
                   <TableValue>{value}</TableValue>
                 </TableRow>
@@ -120,14 +132,14 @@ const CryptoDetails = () => {
 
           <InfoColumn>
             <TextWrapper>
-              <Heading>{cryptoDetails.name} Value Statistics</Heading>
+              <Heading>Other Statistics Information</Heading>
               <TopLine>
                 An overview showing the statistics of {cryptoDetails.name}, such
                 as the base and quote currency, the rank, and trading volume.
               </TopLine>
-              {stats.map(({ title, value, icon }) => (
+              {genericStats.map(({ title, value, icon }) => (
                 <TableRow>
-                  <Subtitle>{icon}</Subtitle>
+                  <Subtitle style={{ fontSize: "24px" }}>{icon}</Subtitle>
                   <Subtitle>{title}</Subtitle>
                   <TableValue>{value}</TableValue>
                 </TableRow>
