@@ -47,7 +47,7 @@ const CryptoDetails = () => {
   const cryptoDetails = data?.data?.coin;
 
   if (isFetching) return <Spinner />;
-  console.log(coinHistory);
+
 
   const time = ["24h", "7d", "30d", "1y", "5y"];
 
@@ -124,7 +124,10 @@ const CryptoDetails = () => {
   return (
     <>
       <SelectWrapper>
-        <SelectHistory onChange={(e) => setTimePeriod(e.target.value)}>
+        <SelectHistory
+          onChange={(e) => setTimePeriod(e.target.value)}
+          defaultValue="24h"
+        >
           {time.map((t) => (
             <HistoryOption key={t}>{t}</HistoryOption>
           ))}

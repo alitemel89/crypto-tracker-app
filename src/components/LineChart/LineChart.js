@@ -35,10 +35,11 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     ],
   };
 
-  const options = {
+  var options = {
     scales: {
       yAxes: [
         {
+          display: true,
           ticks: {
             beginAtZero: true,
           },
@@ -46,8 +47,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
       ],
     },
   };
-
-
 
   return (
     <>
@@ -61,10 +60,13 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
           {" "}
           Current {coinName} Price: $ {currentPrice}{" "}
         </ChartSubHeading>
-        <Line data={data} options={options} height="250" />
+        <Line
+          data={data}
+          options={options}
+          height="250"
+          style={{ maxHeight: "500px" }}
+        />
       </ChartWrapper>
-
-      
     </>
   );
 };

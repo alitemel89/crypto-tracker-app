@@ -48,7 +48,7 @@ export const CoinsCard = styled.div`
   background: #0d0d36;
   width:280px;
   height: 280px;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 20px;
   color: #fff;;
   box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.2);
