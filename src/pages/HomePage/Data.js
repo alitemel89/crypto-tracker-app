@@ -13,5 +13,5 @@ export const homeObjOne = {
   img: require("../../images/hero-1.svg"),
   alt: "Credit Card",
   start: "",
-  projectUrl: "mailto:alitemel89.ce@gmail.com",
+  projectUrl: "https://twitter.com/CryptoTrackerAt",
 };
