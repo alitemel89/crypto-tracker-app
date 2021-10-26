@@ -68,8 +68,8 @@ const News = () => {
 
         <NewsContainer>
           {cryptoNews.value.map((news, i) => (
-            <NewsUrl href={`${news.url}`} target="_blank">
-              <NewsCard key={i}>
+            <NewsUrl href={`${news.url}`} target="_blank" key={i}>
+              <NewsCard>
                 <NewsHeader>
                   <NewsCardIcon>
                     <img

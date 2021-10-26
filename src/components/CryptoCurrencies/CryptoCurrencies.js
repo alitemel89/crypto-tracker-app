@@ -22,14 +22,13 @@ import { useGetCryptosQuery } from "../../services/cryptoApi";
 import Spinner from "../Spinner/Spinner";
 
 function Cryptocurrencies() {
-  const { data: cryptosList, isFetching } = useGetCryptosQuery(20);
+  const { data: cryptosList, isFetching } = useGetCryptosQuery(50);
   const [cryptos, setCryptos] = useState();
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins);
   }, [cryptosList]);
 
-  console.log(cryptos);
 
   if (isFetching) return <Spinner/>;
 

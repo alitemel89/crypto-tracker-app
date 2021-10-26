@@ -22,7 +22,6 @@ const GlobalStats = () => {
 
   if (isFetching) return <Spinner />;
 
-  console.log(data);
 
   return (
     <GlobalStatsSection>
