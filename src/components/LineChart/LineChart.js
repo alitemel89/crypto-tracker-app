@@ -29,8 +29,8 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
         label: "Price In USD",
         data: coinPrice,
         fill: false,
-        backgroundColor: "#0071bd",
-        borderColor: "#0071bd",
+        backgroundColor: "#38b3d0",
+        borderColor: "#38b3d0",
       },
     ],
   };
@@ -47,19 +47,25 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
     },
   };
 
+
+
   return (
-    <ChartWrapper>
-      <ChartHeading>{coinName} Price Chart </ChartHeading>
-      <ChartSubHeading> Change: {coinHistory?.data?.change}% </ChartSubHeading>
-      <ChartSubHeading>
-        {" "}
-        Current {coinName} Price: $ {currentPrice}{" "}
-      </ChartSubHeading>
-      <Line
-        data={data}
-        options={options}
-      />
-    </ChartWrapper>
+    <>
+      <ChartWrapper>
+        <ChartHeading>{coinName} Price Chart </ChartHeading>
+        <ChartSubHeading>
+          {" "}
+          Change: {coinHistory?.data?.change}%{" "}
+        </ChartSubHeading>
+        <ChartSubHeading>
+          {" "}
+          Current {coinName} Price: $ {currentPrice}{" "}
+        </ChartSubHeading>
+        <Line data={data} options={options} height="250" />
+      </ChartWrapper>
+
+      
+    </>
   );
 };
 

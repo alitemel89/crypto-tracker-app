@@ -10,6 +10,7 @@ export const InfoRow = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  
 `;
 
 export const InfoColumn = styled.div`
@@ -23,6 +24,7 @@ export const InfoColumn = styled.div`
   border: 5px solid #eee;
   display: flex;
   justify-content: center;
+  border-radius: 20px;
   @media screen and (max-width: 768px) {
     max-width: 100%;
     flex-basis: 100%;

@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 export const ChartWrapper = styled.div`
   margin: 10px 150px;
-  border: 2px solid #eee;
   padding: 20px;
+
+  @media screen and (max-width: 768px) {
+    margin: 5px;
+  }
 `;
 
 export const ChartHeading = styled.h1`
@@ -22,5 +25,5 @@ export const ChartHeading = styled.h1`
 export const ChartSubHeading = styled.p`
   color: #000;
   font-size: 12px;
-  margin: 5px 0;
+  margin-bottom: 10px;
 `;

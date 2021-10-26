@@ -19,6 +19,7 @@ import {
 } from "./News.styles";
 
 import { Button } from "../../globalStyles";
+import Spinner from '../Spinner/Spinner';
 
 import moment from "moment";
 import { useGetCryptoNewsQuery } from "../../services/cryptoNewsApi";
@@ -40,7 +41,7 @@ const News = () => {
     setCount(count + 8)
   }
 
-  if (!cryptoNews?.value) return "Loading...";
+  if (!cryptoNews?.value) return <Spinner/>;
 
   console.log(cryptoNews);
   return (
