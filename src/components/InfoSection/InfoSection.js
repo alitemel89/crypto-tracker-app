@@ -14,6 +14,7 @@ import {
   ProjectLink
 } from './InfoSection.styles';
 
+
 function InfoSection({
   primary,
   lightBg,
@@ -52,7 +53,7 @@ function InfoSection({
 
                 <ProjectLink target="_blank" href={projectUrl} rel="noopener noreferrer">
                   <Button big fontBig primary={primary}>
-                    {buttonLabel}
+                    {buttonLabel} 
                   </Button>
                 </ProjectLink>
               </TextWrapper>

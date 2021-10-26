@@ -8,7 +8,7 @@ export const homeObjOne = {
   headline: "CryptoTracker is a place to follow latest digital currency news",
   description:
     "CryptoTracker is a platform for news, events, data & research for the next generation of investing and the future of money.",
-  buttonLabel: "Subscribe to newsletters",
+  buttonLabel: "Follow us on Twitter",
   imgStart: true,
   img: require("../../images/hero-1.svg"),
   alt: "Credit Card",

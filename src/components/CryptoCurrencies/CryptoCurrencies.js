@@ -19,6 +19,7 @@ import {
 } from "./CryptoCurrencies.styles";
 
 import { useGetCryptosQuery } from "../../services/cryptoApi";
+import Spinner from "../Spinner/Spinner";
 
 function Cryptocurrencies() {
   const { data: cryptosList, isFetching } = useGetCryptosQuery(20);
@@ -30,7 +31,7 @@ function Cryptocurrencies() {
 
   console.log(cryptos);
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Spinner/>;
 
   return (
     <IconContext.Provider value={{ color: "#73ADAD", size: 50 }}>

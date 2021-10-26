@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const InfoSec = styled.div`
-  background-color: #eee;
+  background-color: snow;
   color: #fff;
   padding: 80px 0;
 `;
@@ -75,4 +75,23 @@ export const TableValue = styled.p`
   font-size: 20px;
   line-height: 24px;
   margin-left: auto;
+`;
+
+export const SelectWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+`
+
+export const SelectHistory = styled.select`
+  width: 300px;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+`;
+
+
+export const HistoryOption = styled.option`
+  color: #000;
 `;

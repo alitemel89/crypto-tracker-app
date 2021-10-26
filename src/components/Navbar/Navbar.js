@@ -13,6 +13,8 @@ import {
   NavItemBtn,
 } from "./Navbar.styles";
 import { FaTimes, FaBars } from "react-icons/fa";
+import { BsTwitter } from "react-icons/bs";
+
 import { IconContext } from "react-icons/lib";
 import { Button } from "../../globalStyles";
 
@@ -68,7 +70,15 @@ const Navbar = () => {
               <NavItemBtn>
                 {button ? (
                   <NavBtnLink to="/signup">
-                    <Button primary>Sign up</Button>
+                    <Button primary>
+                      Follow{" "}
+                      <BsTwitter
+                        style={{
+                          color: '#fff',
+                        }}
+                      />
+                    </Button>
+                   
                   </NavBtnLink>
                 ) : (
                   <NavBtnLink to="/signup">

@@ -14,12 +14,13 @@ import {
   GlobalStatsSection,
   GlobalStatsCardHeading,
 } from "./GlobalStats.styles";
+import Spinner from "../Spinner/Spinner";
 
 const GlobalStats = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats;
 
-  if (isFetching) return "Loading...";
+  if (isFetching) return <Spinner />;
 
   console.log(data);
 
@@ -35,48 +36,36 @@ const GlobalStats = () => {
             <GlobalStatsCardHeading>
               Total Cryptocurrencies
             </GlobalStatsCardHeading>
-            <GlobalStatsCardNumber>
-              {globalStats.total}
-            </GlobalStatsCardNumber>
+            <GlobalStatsCardNumber>{globalStats.total}</GlobalStatsCardNumber>
           </GlobalStatsCard>
 
           <GlobalStatsCard>
-            <GlobalStatsCardHeading>
-              Total 24h Volume
-            </GlobalStatsCardHeading>
+            <GlobalStatsCardHeading>Total 24h Volume</GlobalStatsCardHeading>
             <GlobalStatsCardNumber>
               {millify(globalStats.total24hVolume)}
             </GlobalStatsCardNumber>
           </GlobalStatsCard>
 
           <GlobalStatsCard>
-            <GlobalStatsCardHeading>
-              Total Market Cap
-            </GlobalStatsCardHeading>
+            <GlobalStatsCardHeading>Total Market Cap</GlobalStatsCardHeading>
             <GlobalStatsCardNumber>
-            {millify(globalStats.totalMarketCap)}
+              {millify(globalStats.totalMarketCap)}
             </GlobalStatsCardNumber>
           </GlobalStatsCard>
 
           <GlobalStatsCard>
-            <GlobalStatsCardHeading>
-              Total Exchanges
-            </GlobalStatsCardHeading>
+            <GlobalStatsCardHeading>Total Exchanges</GlobalStatsCardHeading>
             <GlobalStatsCardNumber>
-            {millify(globalStats.totalExchanges)}
+              {millify(globalStats.totalExchanges)}
             </GlobalStatsCardNumber>
           </GlobalStatsCard>
 
           <GlobalStatsCard>
-            <GlobalStatsCardHeading>
-              Total Markets
-            </GlobalStatsCardHeading>
+            <GlobalStatsCardHeading>Total Markets</GlobalStatsCardHeading>
             <GlobalStatsCardNumber>
-            {millify(globalStats.totalMarkets)}
+              {millify(globalStats.totalMarkets)}
             </GlobalStatsCardNumber>
           </GlobalStatsCard>
-
-          
         </GlobalStatsContainer>
       </GlobalStatsWrapper>
     </GlobalStatsSection>
