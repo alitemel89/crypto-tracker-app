@@ -69,8 +69,8 @@ const Navbar = () => {
 
               <NavItemBtn>
                 {button ? (
-                  <NavBtnLink to="/signup">
-                    <Button primary>
+                  <NavBtnLink href="https://twitter.com/CryptoTrackerAt" target="_blank">
+                    <Button primary >
                       Follow{" "}
                       <BsTwitter
                         style={{
@@ -78,14 +78,12 @@ const Navbar = () => {
                         }}
                       />
                     </Button>
-                   
                   </NavBtnLink>
+
                 ) : (
-                  <NavBtnLink to="/signup">
-                    <Button onClick={closeMobileMenu} primary>
-                      Sign Up
-                    </Button>
-                  </NavBtnLink>
+                  <Button onClick={closeMobileMenu} primary>
+                    Follow us on Twitter
+                  </Button>
                 )}
               </NavItemBtn>
             </NavMenu>
