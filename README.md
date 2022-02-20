@@ -5,7 +5,7 @@
 ![4](https://user-images.githubusercontent.com/64444827/152765423-1ac0db35-5387-4df7-b65d-1c8b181469e3.PNG)
 ![5](https://user-images.githubusercontent.com/64444827/152765430-2805a7a9-6b51-4c9f-9d19-491c69f7b999.PNG)
 
-
+ReactJS, Redux Toolkit, ChartJS
 
 # Getting Started with Create React App
 
